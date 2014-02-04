@@ -24,6 +24,9 @@ char *libintl_gettext (const char *__msgid) {
 }
 
 char *libintl_dgettext(const char *__domainname, const char *__msgid) {
+    if (__domainname == NULL || __msgid == NULL)
+        return NULL;
+    
     NSString *_domainname = [NSString stringWithUTF8String:__domainname];
     NSString *_msgid = [NSString stringWithUTF8String:__msgid];
     NSString *result = NSLocalizedStringFromTable(_msgid, _domainname, nil);
