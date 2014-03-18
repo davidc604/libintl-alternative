@@ -12,8 +12,7 @@
 NSString *__boundDomain = nil;
 
 static void __setBoundDomain(NSString *domain) {
-    [__boundDomain release];
-    __boundDomain = [domain retain];
+    __boundDomain = domain;
 }
 
 
@@ -24,6 +23,7 @@ char *libintl_gettext (const char *__msgid) {
 }
 
 char *libintl_dgettext(const char *__domainname, const char *__msgid) {
+//    return __msgid;
     if (__domainname == NULL || __msgid == NULL)
         return NULL;
     
